@@ -1,0 +1,125 @@
+/* General Page Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Container */
+.container {
+  background: #ffffff;
+  padding: 30px;
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* Heading */
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Add Task Form */
+form {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+form input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+form input[type="text"]:focus {
+  border-color: #6c63ff;
+}
+
+/* Buttons */
+button {
+  padding: 9px 12px;
+  background-color: #6c63ff;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #574ee4;
+}
+
+/* Task List */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f8f9fa;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Edit Input */
+li input[type="text"] {
+  flex: 1;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Delete Button */
+li form:last-child button {
+  background-color: #ff4d4d;
+}
+
+li form:last-child button:hover {
+  background-color: #e63c3c;
+}
+
+/* Improve small screens */
+@media (max-width: 420px) {
+  .container {
+    width: 90%;
+  }
+}
+/* Completed Task Style */
+.completed input[type="text"] {
+  text-decoration: line-through;
+  color: #888;
+  background: #e9ecef;
+}
+
+.completed {
+  opacity: 0.8;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+  margin-right: 4px;
+}

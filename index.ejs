@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="app-container">
+  <h1>📝 My To-Do List</h1>
+  <p class="subtitle">Organize your tasks efficiently</p>
+
+  <!-- Add Task -->
+  <form class="add-form" action="/add" method="POST">
+    <input type="text" name="task" placeholder="Enter a new task..." required>
+    <button>Add</button>
+  </form>
+
+  <!-- Task List -->
+  <ul class="task-list">
+    <% tasks.forEach(task => { %>
+      <li class="task-item <%= task.completed ? 'completed' : '' %>">
+
+        <!-- Completion Checkbox -->
+        <form action="/toggle" method="POST">
+          <input type="hidden" name="id" value="<%= task._id %>">
+          <input type="checkbox" onchange="this.form.submit()" <%= task.completed ? 'checked' : '' %>>
+        </form>
+
+        <!-- Edit Task -->
+        <form action="/edit" method="POST" class="edit-form">
+          <input type="hidden" name="id" value="<%= task._id %>">
+          <input type="text" name="updatedTask" value="<%= task.name %>" required>
+          <button class="edit-btn">Update</button>
+        </form>
+
+        <!-- Delete Task -->
+        <form action="/delete" method="POST">
+          <input type="hidden" name="id" value="<%= task._id %>">
+          <button class="delete-btn">Delete</button>
+        </form>
+
+      </li>
+    <% }) %>
+  </ul>
+</div>
+
+</body>
+</html>
